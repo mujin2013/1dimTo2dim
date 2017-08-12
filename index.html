@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>用js将一维数组变成二维数组</h1>
+		<script>
+			var oldArr=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+			var len=oldArr.length;
+			var newArr=new Array();
+			var row=Math.ceil(len/12);
+			var col=12;
+			for(var i=0;i<row;i++){
+				newArr[i]=new Array();
+				for(var j=0;j<col;j++){
+					if((i*col+j)<len){
+						newArr[i][j]=oldArr[i*col+j];
+					}else{
+						newArr[i][j]="";  //赋值为空字符串，只是避免在ng-repeat时报错
+					}
+				}
+			}
+			console.log(newArr);
+		</script>
+	</body> 
+</html>
