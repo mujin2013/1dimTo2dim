@@ -11,35 +11,53 @@
             var sum1=(a,b)=>{
                 return a+b;  //4
             }
+
+
             //求和函数（返回值是一个表达式且和函数体没有副作用，故省去花括号和return关键字）
             console.log(sum1(1,3));
             var sum2=(a,b)=>a+b;  //5
             console.log(sum2(2,3));
+
+
             //单一参数的单行箭头函数
             const fn1=foo=>`${foo}+ world !`; //此处为动态字符串，所以用到了反引号
             console.log(fn1('hello'));  //hello world !
+
+
             //单一参数的单行箭头函数用于过滤
             let array1=['a','bc','def','ghij'];
             console.log(array1=array1.filter(item=>item.length>=2));// ["bc", "def", "ghij"]
+            
+
             //多参数的单行箭头函数，依然是求和
             const fn2=(foo,bar)=>foo+bar;
             console.log(fn2(4,5));//9
+            
+
             //多参数的单行箭头函数，用于排序
             let array2=['a','bc','def','ghij'];
             console.log(array2=array2.sort((a,b)=>a.length<b.length));// ["ghij", "def", "bc", "a"]
+            
+
             //多行箭头函数，单一参数
             const fn3=foo=>{
                 return `${foo} world xia`
             }
             console.log(fn3('xiaxia'));//xiaxia world xia
+            
+
             //多行箭头函数，多参数
             const fn4=(foo,bar)=>{
                 return foo+bar;
             }
             console.log(fn4(1,7));//8
+           
+
             //无参箭头函数
             const fn5=()=>'hello world,i love you'
             console.log(fn5());//hello world,i love you
+           
+
             //用箭头函数编写单行回调函数的例子
             const names = ['Will', 'Jack', 'Peter', 'Steve', 'John', 'Hugo', 'Mike'];
             const newSet=names
@@ -51,6 +69,8 @@
                 .map(man=>[man.name])
                 .reduce((a,b)=>a.concat(b));
                 console.log(newSet);//["Will", "Peter", "John", "Mike"]
+            
+
             //用setInterval实现一个球体的动画方法（为了避免出错，用bind方法绑定setInterval函数中的this）----普通函数实现
             var Ball1=function(x,y,vx,vy){
                 this.x=x;
@@ -68,6 +88,8 @@
                 }.bind(this),this.dt);  //bind可以改变函数体内this的指向
             }
            // var ball1=new Ball1(0,0,1,2);
+           
+
             console.log('我是第二个');
             //用setInterval实现一个球体的动画方法（为了避免出错，用bind方法绑定setInterval函数中的this）----箭头函数实现
             /*var Ball2=function(x,y,vx,vy){
@@ -87,6 +109,8 @@
 
             }
             var ball2=new Ball2(0,0,1,2);*/
+           
+
             //对象字面量不要用箭头函数----下例会报错
             /*var calcuate={
                 array:[1,2,3],
@@ -97,6 +121,8 @@
             }
             console.log(this===window);
             calcuate.sum();*/
+           
+
             //上例的解决方法-----使用方法定义的短语发（ES6可用）或函数表达式，此处使用前者
             console.log('方法定义的短语法');
             var calcuate={
